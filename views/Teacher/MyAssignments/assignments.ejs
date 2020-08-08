@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<link rel="stylesheet" type="text/css" href="../../../css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/component.css" />
+		<style>
+			.backg {
+                background: rgb(37, 37, 37);
+            }
+			.profileTable {
+				color: rgb(226, 226, 226);
+				padding: 5px;
+				
+			}
+			.padding {
+				padding-right: 50px;
+			}
+		</style>
+	</head>
+	<body class="backg">
+				<nav class="menu menu--shylock">
+					<ul class="menu__list">
+						<li class="menu__item"><a href="/profile" class="menu__link"><%= profile.FirstName%>'s Profile</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item menu__item--current"><a href="/myassignments" class="menu__link">My Assignments</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/addassignments" class="menu__link">Add Assignment</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/mygroups" class="menu__link">My groups</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/logout" class="menu__link">Logout</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul>
+				</nav>
+				
+		<script src="../js/classie.js"></script>
+		<script src="../js/clipboard.min.js"></script>
+
+		<form action='/myassignments/<%= ass.assignment %>/addques'>
+			<button class="btn btn-dark" type='submit'>
+				<h5><span class="badge badge-light">Add New Ques</span></h5>
+			  </button>
+		</form>
+		
+		<h3><a href='/myassignments/<%= ass.assignment %>/addques'></a></h3>
+		<h2><span class="badge badge-dark">Questions:</span></h2>
+		<br>
+		<%
+			for(var v=1; v <= ass.questions.length; v++) {
+			%>
+			<button class="btn btn-dark" type='submit'>
+				<span class="badge badge-light">Q.<%=v%>: </span>
+					<%= ass.questions[v-1] %> 
+				  </button>
+		 <br>
+		<% } %>
+		<br>
+		<form method="POST" action='/myassignments/viewsubmissions/<%=ass.assignment%>'>
+			<h2><span class="badge badge-dark">View Submission for student:<input type="text" name="stud" id="stud"><button class="btn btn-dark" type="submit" value="submit"><span class="badge badge-light">Submit</span></button> </h2></span>
+			
+		</form>
+		<form action='/myassignments/viewsubmissions/<%= ass.assignment %>'>
+			<button class="btn btn-dark" type='submit'>
+				<h5><span class="badge badge-light">View All Submissions</span></h5>
+			  </button>
+		</form>
+	</body>
+</html>

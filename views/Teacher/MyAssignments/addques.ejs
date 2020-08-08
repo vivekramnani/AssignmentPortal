@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="../../css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/component.css" />
+		<style>
+			.backg {
+                background: rgb(37, 37, 37);
+            }
+			.profileTable {
+				color: rgb(226, 226, 226);
+				padding: 5px;
+				
+			}
+			.padding {
+				padding-right: 50px;
+			}
+		</style>
+	</head>
+	<body class="backg">
+				<nav class="menu menu--shylock">
+					<ul class="menu__list">
+						<li class="menu__item"><a href="/profile" class="menu__link"><%= profile.FirstName%>'s Profile</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item menu__item--current"><a href="/myassignments" class="menu__link">My Assignments</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/addassignments" class="menu__link">Add Assignment</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/mygroups" class="menu__link">My groups</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/logout" class="menu__link">Logout</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul>
+				</nav>
+				
+		<script src="../js/classie.js"></script>
+        <script src="../js/clipboard.min.js"></script>
+        <form action='/myassignments/addques/submit/<%= ass.assignment %>' method="POST">
+            <input type="text" id="question" name="question"><br>
+            <input type="submit" value="Submit">
+        </form>
+        
+		
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		
+		<link rel="stylesheet" type="text/css" href="../css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../css/component.css" />
+		<style>
+			.backg {
+                background: rgb(37, 37, 37);
+            }
+			.profileTable {
+				color: rgb(226, 226, 226);
+				padding: 5px;
+				border-radius: 25px;
+  				border: 2px solid rgb(199, 199, 199);
+				
+			}
+			.padding {
+				padding-right: 50px;
+			}
+		</style>
+	</head>
+	<body class="backg">
+				<nav class="menu menu--shylock">
+					<ul class="menu__list">
+						<li class="menu__item menu__item--current"><a href="#" class="menu__link"><%= FirstName%>'s Profile</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/upcomingassignments" class="menu__link">Upcoming Assigments</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/ongoingassignments" class="menu__link">Ongoing Assignements</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/Remarks" class="menu__link">Remarks</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/logout" class="menu__link">Logout</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul>
+				</nav>
+				
+		<script src="../js/classie.js"></script>
+		<script src="../js/clipboard.min.js"></script>
+		<table class="profileTable">
+			<tr>
+				<td><b><h2>Name: </h2></b></td>
+				<td class='padding'><h2><%= FirstName%> <%= LastName%></h2></td>
+				<td rowspan="2"><h2>Upload image</h2></td>
+			</tr>
+			<tr>
+				<td><b><h2>Mail: </h2></b></td>
+				<td class="padding"><h2><%= email%></h2></td>
+			</tr>
+		</table>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <style>
+            .form-container {
+                background: rgb(245, 243, 243);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 10px 0px rgb(20, 2, 124);
+                position: relative;
+                top: 12vh;
+                
+            }
+            .backg {
+                background: rgb(37, 37, 37);
+            }
+        </style>
+        <script src='../otp.js'>
+        </script>
+    </head>
+    <body class="backg">
+        <div class='container-fluid'><section class='row justify-content-center'>
+            <form class='form-container' method='post' action='/verifyOTP/' id='regForm'>
+                <input type="hidden" class="form-control" id="exampleInputFirstName1" name="exampleInputFirstName1">
+                <h1><section style='color: rgb(207, 207, 207); text-align: center; color: rgb(36, 36, 36);'>Enter OTP</section></h1>
+                <div class='control-group custom-control-inline'>
+                    <label for='exampleInputFirstName1'>OTP: </label>
+                </div>
+                <div class='control-group custom-control-inline'>
+                    <input type='text' class='form-control' id='otp' name="otp">
+                </div>
+                <div class='col-md-12 text-center'>
+                    <button type='submit' class='btn btn-primary btn-block' onclick='return verify()'>Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

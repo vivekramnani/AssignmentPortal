@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="../../../css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../../../css/component.css" />
+		<style>
+			.backg {
+                background: rgb(37, 37, 37);
+            }
+			.profileTable {
+				color: rgb(226, 226, 226);
+				padding: 5px;
+				
+			}
+			.padding {
+				padding-right: 50px;
+			}
+		</style>
+	</head>
+	<body class="backg">
+				<nav class="menu menu--shylock">
+					<ul class="menu__list">
+						<li class="menu__item"><a href="/profile" class="menu__link"><%= profile.FirstName%>'s Profile</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item menu__item--current"><a href="/myassignments" class="menu__link">My Assignments</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/addassignments" class="menu__link">Add Assignment</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/mygroups" class="menu__link">My groups</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/logout" class="menu__link">Logout</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul>
+				</nav>
+				
+		<script src="../js/classie.js"></script>
+		<script src="../js/clipboard.min.js"></script>
+		<div class="accordion" id="accordionExample">
+		<% for(var v=1; v <= sub.length; v++) { %>
+			<div class="card">
+				<div class="card-header" id="heading<%=v%>">
+				  <h2 class="mb-0">
+					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseExample<%=v%>" aria-expanded="true" aria-controls="collapseExample<%=v%>">
+						<%= sub[v-1].student %>
+					</button>
+				  </h2>
+				</div>
+			
+				<div id="collapseExample<%=v%>" class="collapse" aria-labelledby="heading<%=v%>" data-parent="#accordionExample">
+				  <div class="card-body">
+					<% for(var v1=1; v1 <= sub[v-1].answers.length; v1++) { %>
+						<button class="btn btn-dark" type='submit'>
+							<span class="badge badge-light">Ans.<%=v1%>: </span>
+							<%= sub[v-1].answers[v1-1] %><br>
+							  </button>
+							  <br>
+				   <% } %>				 
+				 </div>
+				</div>
+			  </div>
+			   
+			   <a href='/myassignments/giveremarks/<%=ass%>/<%=sub[v-1].student%>'> <span class="badge badge-light">Give Remarks </span></a>
+			   <br>
+		<% } %>
+	</div>
+		<br>
+		<br>
+	</body>
+</html>

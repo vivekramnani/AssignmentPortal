@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="../css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="../css/component.css" />
+		<style>
+			.backg {
+                background: rgb(37, 37, 37);
+            }
+			.profileTable {
+				color: rgb(226, 226, 226);
+				padding: 5px;
+				
+			}
+			.padding {
+				padding-right: 50px;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</head>
+	<body class="backg">
+				<nav class="menu menu--shylock">
+					<ul class="menu__list">
+						<li class="menu__item"><a href="/profile" class="menu__link"><%= FirstName%>'s Profile</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/upcomingassignments" class="menu__link">Upcoming Assigments</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item menu__item--current"><a href="/ongoingassignments" class="menu__link">Ongoing Assignments</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/Remarks" class="menu__link">Remarks</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<li class="menu__item"><a href="/logout" class="menu__link">Logout</a></li>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</ul>
+				</nav>
+				
+		<script src="../js/classie.js"></script>
+		<script src="../js/clipboard.min.js"></script>
+		<%if(assignmentIds.length>0) { %>
+			<div class="accordion" id="accordionExample">
+			<%
+			for(var v=0; v < assignmentIds.length; v++) {
+				if(assignmentIds[v].start.getTime() <= Date.now() && assignmentIds[v].end.getTime() >= Date.now()) {
+			%>
+			<div class="card">
+				<div class="card-header" id="heading<%=v%>">
+				  <h2 class="mb-0">
+					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseExample<%=v%>" aria-expanded="true" aria-controls="collapseExample<%=v%>">
+						Assignment ID: <%= assignmentIds[v].assi %>
+					</button>
+				  </h2>
+				</div>
+			
+				<div id="collapseExample<%=v%>" class="collapse" aria-labelledby="heading<%=v%>" data-parent="#accordionExample">
+				  <div class="card-body">
+					Assignment by: <%= assignmentIds[v].user %><br>
+					Assignment Name: <%= assignmentIds[v].name %><br>
+					Start Time: <%= assignmentIds[v].start%><br>
+					End Time: <%= assignmentIds[v].end%><br>	
+					<a href='/submitassignment/<%= assignmentIds[v].user%>/<%= assignmentIds[v].assi%>'>Submit</a><br>
+					<a href='/viewsubmission/<%= assignmentIds[v].user%>/<%= assignmentIds[v].assi%> '>View Submission</a>				 
+				 </div>
+				</div>
+			  </div>
+		
+		<br>
+		<% } } %></div><% }else {%>
+			No record found
+			<% } %> 
+		
+	</body>
+</html>
